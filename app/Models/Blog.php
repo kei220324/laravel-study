@@ -8,7 +8,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 class Blog extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', 'body', 'image', 'category_id'];
 
-    // マスアサインを許可するカラムを指定
-    protected $fillable = ['title', 'body', 'image'];
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
+
+    public function cats(){
+       return $this->belongsToMany(Cat::class);
+    }
 }

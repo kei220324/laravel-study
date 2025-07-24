@@ -10,8 +10,12 @@
     <link rel="stylesheet" href="/css/admin/select2.min.css">
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon.png">
     <script src="/js/main.js"></script>
+    
     <script src="/js/admin/jquery-3.6.0.slim.min.js"></script>
     <script src="/js/admin/select2.min.js"></script>
+
+
+  
 </head>
 <body class="antialiased bg-body text-body font-body">
 <div>
@@ -90,7 +94,8 @@
                         <span>設定</span>
                     </a>
 
-                    <form>
+                    <form action="{{route('admin.logout')}}" method="post">
+                        @csrf
                         <button type="submit" class="w-full flex items-center pl-3 py-3 pr-2 text-gray-50 hover:bg-gray-900 rounded">
               <span class="inline-block mr-4">
                 <svg class="text-gray-600 w-5 h-5" viewbox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,8 +114,8 @@
         <!-- ▼▼▼▼共通ヘッダー(PC)▼▼▼▼　-->
         <section class="py-5 px-6 bg-white shadow hidden lg:block">
             <div class="flex items-center justify-end">
-                <span class="text-sm text-gray-500">店長</span>
-                <img class="ml-3 w-10 h-10 rounded-full object-cover object-right" src="/images/placeholders/admin/user.jpg" alt="">
+                <span class="text-sm text-gray-500">{{$user->name}}</span>
+                <img class="ml-3 w-10 h-10 rounded-full object-cover object-right" src="{{'storage/'.$user->image}}" alt="">
             </div>
         </section>
         <!-- ▲▲▲▲共通ヘッダー(PC)▲▲▲▲　-->
